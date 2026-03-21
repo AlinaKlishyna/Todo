@@ -1,15 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Button } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context'
 
 export default function App() {
-const handleTextPress = () => {  console.log("Text pressed");
-}
+const handleTextPress = () => {console.log("Text pressed..");}
+const handleButtonPress = () => {
+  console.log("Button pressed..");
+  alert("Button pressed");
+} 
+
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} style={styles.text} onPress={handleTextPress}>Hello!{'\n'}This is my first React Native app!</Text>
-      <Button title="Click Me" onPress={() => console.log("Button pressed")} />
+      <Text numberOfLines={2} style={styles.text} onPress={handleTextPress}>Hello!{'\n'}This is my first React Native app!</Text>
+        <Button 
+        title="Click Me" 
+        color="#f194ff" 
+        onPress={handleButtonPress} 
+        />
+        <Button
+          title="Press me"
+          color="#f194ff"
+          onPress={() => showAlert('Button with adjusted color pressed')}
+        />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -18,7 +32,7 @@ const handleTextPress = () => {  console.log("Text pressed");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
   },
    text: {
     color: 'blue',
